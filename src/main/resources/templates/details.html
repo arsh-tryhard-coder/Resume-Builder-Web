@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Enter Your Details</title>
+</head>
+<body>
+<h1>Enter Your Details</h1>
+<form th:action="@{/save-details}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${details.name}"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:value="${details.email}"><br><br>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" th:value="${details.phone}"><br><br>
+
+    <label for="summary">Summary:</label>
+    <textarea id="summary" name="summary" th:text="${details.summary}"></textarea><br><br>
+
+    <h2>Education</h2>
+    <ul>
+        <li th:each="education, iter : ${details.educationList}">
+            <label for="degree">Degree:</label>
+            <input type="text" id="degree" name="educationList[${iter.index}].degree" th:value="${education.degree}"><br>
+
+            <label for="institution">Institution:</label>
+            <input type="text" id="institution" name="educationList[${iter.index}].institution" th:value="${education.institution}"><br>
+
+            <label for="date">Dates:</label>
+            <input type="text" id="date" name="educationList[${iter.index}].dates" th:value="${education.dates}"><br>
+
+            <label for="coursework">Coursework:</label>
+            <input type="text" id="coursework" name="educationList[${iter.index}].coursework" th:value="${education.coursework}"><br>
+        </li>
+    </ul>
+
+    <h2>Work Experience</h2>
+    <ul>
+        <li th:each="workExperience, iter : ${details.workExperienceList}">
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="workExperienceList[${iter.index}].company" th:value="${workExperience.company}"><br>
+
+            <label for="dates">Dates:</label>
+            <input type="text" id="dates" name="workExperienceList[${iter.index}].dates" th:value="${workExperience.dates}"><br>
+
+            <label for="jobDescription">Job Description:</label>
+            <textarea id="jobDescription" name="workExperienceList[${iter.index}].jobDescription" th:text="${workExperience.jobDescription}"></textarea><br>
+
+            <label for="achievements">Achievements:</label>
+            <ul>
+                <li th:each="achievement, iter2 : ${workExperience.achievements}">
+                    <input type="text" id="achievements" name="workExperienceList[${iter.index}].achievements[${iter2.index}]" th:value="${achievement}">
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul>
+        <li th:each="skill, iter : ${details.skillsList}">
+            <input type="text" id="skill" name="skillsList[${iter.index}]" th:value="${skill}">
+        </li>
+    </ul>
+
+    <h2>Achievements</h2>
+    <ul>
+        <li th:each="achievement, iter : ${details.achievementsList}">
+            <input type="text" id="achievement" name="achievementsList[${iter.index}]" th:value="${achievement}">
+        </li>
+    </ul>
+
+    <input type="submit" value="Save Details">
+</form>
+</body>
+</html>

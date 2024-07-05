@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resume Template</title>
+    <style>
+        /* Add some basic styling to make it look professional */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+       .resume {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+       .section {
+            margin-bottom: 20px;
+        }
+       .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 0;
+            text-decoration: underline;
+        }
+       .info {
+            font-size: 14px;
+            color: #666;
+        }
+       .highlight {
+            font-weight: bold;
+            color: #337ab7;
+        }
+    </style>
+</head>
+<body>
+<div class="resume">
+    <h1 th:text="${name}"></h1>
+    <p class="info" th:text="${contactInfo}"></p>
+
+    <div class="section">
+        <h2 class="section-title">Summary</h2>
+        <p class="info" th:text="${summary}"></p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        <ul th:each="education : ${educationList}">
+            <li>
+                <h3 th:text="${education.degree} + ', ' ${education.institution}"></h3>
+                <p th:text="${education.dates}"></p>
+                <p th:text="${education.coursework}"></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Work Experience</h2>
+        <ul th:each="workExperience : ${workExperienceList}">
+            <li>
+                <h3 th:text="${workExperience.company}"></h3>
+                <p th:text="${workExperience.dates}"></p>
+                <p th:text="${workExperience.jobDescription}"></p>
+                <p class="highlight">Achievements:</p>
+                <ul th:each="achievement : ${workExperience.achievements}">
+                    <li><p th:text="${achievement}"></p></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Skills</h2>
+        <ul th:each="skill : ${skillsList}">
+            <li><p th:text="${skill}"></p></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Achievements</h2>
+        <ul th:each="achievement : ${achievementsList}">
+            <li><p th:text="${achievement}"></p></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

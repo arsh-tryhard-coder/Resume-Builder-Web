@@ -1,0 +1,62 @@
+
+
+/* Typography */
+.resume {
+  font-family: Arial, sans-serif;
+  font-size: 1rem; /* relative unit */
+  line-height: 1.5;
+}
+
+/* Layout */
+.resume {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.resume section {
+  margin-bottom: 1rem;
+}
+
+/* Links */
+.resume a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.resume a:hover {
+  text-decoration: underline;
+}
+
+.resume a:focus {
+  box-shadow: 0 0 0 2px #0066cc; /* highlight focused links */
+}
+
+/* Register link */
+.register-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.register-link:focus {
+  box-shadow: 0 0 0 2px #0066cc; /* highlight focused links */
+}
+
+/* Lists */
+.resume ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.resume li {
+  margin-bottom: 0.5rem;
+}
+
+.resume li::before {
+  content: "\2022"; /* add a bullet point */
+  margin-right: 0.5rem;
+  color: #666;
+}
