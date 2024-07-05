@@ -1,13 +1,13 @@
 # Resume Builder Web Application
 
 ## Introduction
-The Resume Builder Web Application is a platform designed to help users create professional resumes easily. Users can register, log in, select from various templates, input their personal, professional, and academic details, and generate a downloadable PDF of their resume.
+The Resume Builder Web Application is a platform designed to help users create professional resumes easily. Users can register, log in, select from various templates, input their personal, professional, and academic details, and generate a resume.
 
 ## Features
 - User registration and authentication
 - Selection of resume templates (Classic and Stylish)
 - Input personal, professional, and academic details
-- Generate and download PDF resumes
+- Generate resumes
 - Secure password storage and user data handling
 
 ## Technologies Used
@@ -15,7 +15,6 @@ The Resume Builder Web Application is a platform designed to help users create p
 - **Frontend**: Thymeleaf
 - **Database**: MySQL
 - **Security**: Spring Security
-- **PDF Generation**: iTextPDF version 5.5.13.4
 
 ## Prerequisites
 - Java 8 or higher
